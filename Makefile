@@ -23,10 +23,10 @@ clean:
 	@docker compose down --volumes --remove-orphans
 
 init: clean
+	@mkdir -p ./dags ./logs ./plugins ./config
 	@docker compose up airflow-init
 
 dev: clean
-	@mkdir -p ./dags ./logs ./plugins ./config
 	@docker compose up -d
 
 dev.up:
