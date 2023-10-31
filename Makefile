@@ -20,7 +20,7 @@ help: ## Prints this help
 	@grep -E '^[a-zA-Z_\-\0.0-9]+:.*?## .*$$' ${MAKEFILE_LIST} | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 clean:
-	@docker compose down --remove-orphans
+	@docker compose down --volumes --remove-orphans
 
 dev: clean
 	@docker compose up -d
